@@ -1,9 +1,8 @@
-
-body{
-    margin: 0;
-
-    font-family: 'Quicksand', sans-serif;
+.inactive{
+    display: none;
 }
+
+
 
 .flex-row{
     display: flex;
@@ -14,6 +13,7 @@ body{
 nav{
 
     border-bottom: 1px solid var(--very-light-pink);
+    height: 64px;
 }
 
 nav .icon-menu{
@@ -71,6 +71,72 @@ nav .icon-menu{
     margin: 0 18px;
 
 }
+
+
+/* menu ordenes y cuenta  */
+
+.options-menu{
+    position: absolute;
+    top: 50px;
+    right: 64px;
+    width: 140px;
+    height: auto;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+
+
+    background-color: var(--white);
+
+
+}
+
+.options-menu ul{
+    list-style: none;
+    height: 100%;
+
+}
+
+.options-menu ul li{
+    text-align: end;
+
+    height: 40px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+
+}
+
+.options-menu ul li a{
+
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+    padding-right: 16px;
+
+
+
+}
+
+
+.options-menu ul li button{
+    border: none;
+
+    background-color: transparent;
+    padding-right: 16px;
+
+    color: var(--hostpital-green);
+    text-align: end;
+    width: 100%;
+    height: 60px;
+    font-size: var(--sm);
+
+    border-top: 1px solid var(--very-light-pink);
+
+
+}
+
+
+
 
 @media (min-width: 945px) {
     .icon-menu{
