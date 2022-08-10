@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Title</title>
+
+    <style>
+
+        :root {
+            --white: #ffffff;
+            --black: #000000;
+            --very-light-pink: #c7c7c7;
+            --text-input-field: #f7f7f7;
+            --hostpital-green: #acd9b2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+
+        body{
+
+            font-family: 'Quicksand', sans-serif;
+        }
+
+
+        .options-menu{
+            width: 140px;
+            height: auto;
+            border: 1px solid #eeeded;
+            border-radius: 4px;
+
+            padding: 0;
+        }
+
+        .options-menu ul{
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .options-menu ul li{
+            text-align: end;
+
+            height: 40px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+
+
+        }
+
+        .options-menu ul li a{
+
+            text-decoration: none;
+            color: var(--black);
+            font-weight: bold;
+            padding-right: 16px;
+
+
+
+        }
+
+
+        .options-menu ul li button{
+            border: none;
+            background-color: white;
+            margin-top: 0;
+            padding-right: 16px;
+
+            color: var(--hostpital-green);
+            text-align: end;
+            width: 100%;
+            height: 60px;
+            font-size: var(--sm);
+
+            border-top: 1px solid var(--very-light-pink);
+
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="options-menu">
+        <ul>
+            <li>
+                <a href="/" class="title">My orders</a>
+            </li>
+            <li>
+                <a href="/" class="title">My account</a>
+            </li>
+            <li>
+                <button >sing out</button>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>

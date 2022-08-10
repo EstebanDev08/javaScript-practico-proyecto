@@ -1,0 +1,96 @@
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --very-light-pink: #c7c7c7;
+    --text-input-field: #f7f7f7;
+    --hostpital-green: #acd9b2;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
+
+body{
+    margin: 0;
+
+    font-family: 'Quicksand', sans-serif;
+}
+.login {
+    width:  100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.form_container{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 300px;
+}
+
+
+.title{
+    font-size: var(--lg);
+    margin-bottom: 40px;
+    text-align: left;
+    font-weight: bolder;
+
+}
+
+.lb_password{
+    font-size: var(--sm);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.input{
+    background-color: var(--text-input-field);
+    border: none;
+    border-radius: 8px;
+    height: 28px;
+    font-size: var(--md);
+    padding: 8px;
+    margin-bottom: 24px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.Bt_primary{
+    background-color: var(--hostpital-green);
+    color: var(--white);
+    font-size: var(--sm);
+    font-weight: bold;
+    border: none;
+
+    height: 52px;
+    border-radius: 8px;
+}
+.bt_login{
+    margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+    .form{
+        height: 100%;
+        justify-content: space-between;
+    }
+    .form_container{
+        height: 100%;
+    }
+
+    .bt_login{
+        margin-bottom: 24px;
+    }
+
+
+}
+
+

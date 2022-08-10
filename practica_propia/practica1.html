@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practica nav</title>
+    <link rel="shortcut icon" href="../Logos/favicon_bota_fora.svg" type="image/x-icon">
+<style>
+
+    body{
+        margin: 0;
+        background-color: #0b2054;
+        font-family: 'Quicksand', sans-serif;
+        color: white;
+
+    }
+
+    nav{
+        height: 52px;
+        border-bottom: 3px solid #040c1f;
+
+        display: grid;
+        grid-template-columns: 340px 1fr 15%;
+        justify-items: end;
+        align-items: center;
+
+    }
+    nav div{
+
+        margin-right: 24px;
+        margin-left: 24px;
+    }
+
+    .categorias{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+
+    }
+
+    .categorias a {
+        margin-right: 20px;
+
+        text-align: end;
+        cursor: pointer;
+        text-decoration: none;
+
+
+        color: white;
+        font-size: 14px;
+
+    }
+    .barra-busqueda input{
+
+        width: 200px;
+        background-color: transparent;
+
+        border: 3px solid #09093b;
+        border-radius: 8px;
+    }
+
+
+</style>
+</head>
+<body>
+
+<nav>
+
+
+    <div class="categorias">
+        <a href="#.menu">inicio</a>
+        <a href="">sobre mi</a>
+        <a href="">contacto</a>
+        <a href="">my trabajo</a>
+    </div>
+
+    <div class="barra-busqueda">
+        <input type="text" placeholder="Busqueda">
+    </div>
+
+    <div class="menu">
+        <p>hola</p>
+    </div>
+
+</nav>
+
+<div class="page-body">
+
+
+
+</div>
+
+</body>
+</html>

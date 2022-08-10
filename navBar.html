@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --black: #000000;
+      --very-light-pink: #c7c7c7;
+      --text-input-field: #f5f5f5;
+      --hostpital-green: #acd9b2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+
+    body{
+      margin: 0;
+
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .flex-row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav{
+
+      border-bottom: 1px solid var(--very-light-pink);
+    }
+
+    .logo{
+      padding: 0;
+      margin: 0;
+      height: 28px;
+
+    }
+    .logo img{
+      height: 100%;
+      margin: 0 16px 0 16px ;
+    }
+
+    .categories{
+      display: none;
+    }
+
+    .categories-container{
+
+      margin: 8px;
+
+    }
+    .categories p a{
+
+      margin: 18px;
+      text-decoration: none;
+      color: gray ;
+
+    }
+
+    .options{
+
+      font-size: var(--sm);
+      color: #414040;
+
+    }
+
+    .options p{
+      display: none;
+    }
+    .options p span:nth-child(2){
+      margin-left: 4px;
+      color: gray;
+      font-weight: bold;
+
+    }
+    .options figure{
+      margin: 0;
+      padding: 0;
+    }
+
+    .options figure img{
+
+      margin:  16px 0 0px ;
+    }
+
+    @media (min-width: 942px) {
+      .icon-menu{
+        display: none;
+      }
+
+      .categories{
+        display: flex;
+      }
+
+      .options p{
+        display: inline;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="flex-row">
+    <figure class="icon-menu">
+      <img src="icons/icon_menu.svg">
+    </figure>
+
+    <div class="categories-container flex-row" >
+      <figure class="logo">
+        <img src="Logos/logo_yard_sale.svg">
+      </figure>
+
+      <div class="categories flex-row">
+        <p>
+          <a href=""> All</a>
+        </p>
+
+        <p>
+          <a href=""> Clothes</a>
+        </p>
+        <p>
+          <a href=""> Electronics</a>
+        </p>
+        <p>
+          <a href=""> Furniture</a>
+        </p>
+        <p>
+          <a href=""> Toys</a>
+        </p>
+        <p>
+          <a href=""> Others</a>
+        </p>
+      </div>
+    </div>
+    
+    <div class="options flex-row">
+      <p>
+        <span>MyEmail@example.com</span>
+        <span>v</span>
+      </p>
+      
+      <figure >
+        <img src="icons/icon_shopping_cart_notification.svg">
+      </figure>
+    </div>
+    
+    
+  </nav>
+</body>
+
+</html>
