@@ -1,14 +1,5 @@
 
-:root {
-    --white: #ffffff;
-    --black: #000000;
-    --very-light-pink: #777777;
-    --text-input-field: #f7f7f7;
-    --hostpital-green: #acd9b2;
-    --sm: 14px;
-    --md: 16px;
-    --lg: 18px;
-}
+
 
 body{
     margin: 0;
