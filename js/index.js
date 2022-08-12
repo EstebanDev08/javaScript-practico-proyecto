@@ -80,19 +80,101 @@ list_productos.push({
     categoria: 'toys'
 });
 
+list_productos.push({
+    nombre: 'labial',
+    precio: 50,
+    image:'/products_img/product2.jpg',
+    categoria: 'electronics'
+});
+
+list_productos.push({
+    nombre: 'labial',
+    precio: 10,
+    image:'/products_img/product1.jpg',
+    categoria: 'furniture'
+});
+
+list_productos.push({
+    nombre: 'labial',
+    precio: 10,
+    image:'/products_img/product1.jpg',
+    categoria: 'toys'
+});
+list_productos.push({
+    nombre: 'labial',
+    precio: 50,
+    image:'/products_img/product1.jpg',
+    categoria: 'electronics'
+});
+
+list_productos.push({
+    nombre: 'labial',
+    precio: 10,
+    image:'/products_img/product1.jpg',
+    categoria: 'furniture'
+});
+
+list_productos.push({
+    nombre: 'labial',
+    precio: 10,
+    image:'/products_img/product1.jpg',
+    categoria: 'toys'
+});
+list_productos.push({
+    nombre: 'labial',
+    precio: 50,
+    image:'/products_img/product1.jpg',
+    categoria: 'electronics'
+});
+
+list_productos.push({
+    nombre: 'labial',
+    precio: 10,
+    image:'/products_img/product1.jpg',
+    categoria: 'furniture'
+});
+
+list_productos.push({
+    nombre: 'labial',
+    precio: 10,
+    image:'/products_img/product2.jpg',
+    categoria: 'toys'
+});
+
 
 /* llamamos funcion para que muestre los productos de todas las categorias*/
 mostrar_productos(list_productos, 'all');
 
 
 
+/*  mostrar productos por categorias  */
+
+/* obtengo a todos los objetos con clase btn_categoria */
+const btn_categoria = document.querySelectorAll('.btn-categoria');
+
+
+
+// recorro el array de todos los botones
+
+
+btn_categoria.forEach(function (btn){
+
+    btn.addEventListener('click', function (){
+
+        let categoria = btn.querySelector('a').innerText.toLowerCase();
+
+        console.log(categoria);
+
+        mostrar_productos(list_productos, categoria);
+    });
+
+});
 
 
 /* funcion para activar o desactivar menu*/
 function  activar_desactivar ( elementoHtml){
 
-       elementoHtml.classList.toggle('');
-
+       elementoHtml.classList.toggle('inactive');
 
 }
 
