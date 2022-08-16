@@ -11,20 +11,18 @@
     <link rel="shortcut icon" href="./Logos/favicon_yard_sale.svg" type="image/x-icon">
 
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>YardSale: tienda de cositas cool</title>
 
 
 </head>
+
 <body>
-
-
 
 <nav class="flex-row">
 
-    <img class="icon-menu" src="icons/icon_menu.svg" alt="menu icono">
+    <img class="icon-menu btn-menu-despegable" src="icons/icon_menu.svg" alt="menu icono">
 
 
     <div class="categories-container flex-row" >
@@ -44,7 +42,7 @@
                 <a href="#"> Electronics</a>
             </p>
             <p class="hover active btn-categoria">
-                <a href="#"> Furniture</a>
+                <a href="#"> Furnitures</a>
             </p>
             <p class="hover active btn-categoria">
                 <a href="#"> Toys</a>
@@ -56,17 +54,17 @@
     </div>
 
     <div class="options ">
-        <p >
-            <span>MyEmail@example.com</span>
-            <span>v</span>
+        <p class="btn-menu-despegable">
+            <span class="btn-menu-despegable">MyEmail@example.com</span>
+            <span class="btn-menu-despegable">v</span>
         </p>
 
 
-        <img src="icons/icon_shopping_cart_notification.svg">
+        <img class="btn-menu-despegable" src="icons/icon_shopping_cart_notification.svg">
 
 
 
-        <div class="options-menu inactive">
+        <div class="options-menu inactive menu-despegable">
             <ul>
                 <li>
                     <a href="/" class="title">My orders</a>
@@ -83,11 +81,17 @@
 
     </div>
 
+
+
 </nav>
 
 <main>
 
-    <section class="menu-mobile inactive">
+    <div class="dark-screen inactive">
+
+    </div>
+
+    <section class="menu-mobile inactive menu-despegable">
         <h2>Categories</h2>
         <ul>
             <li class="hover active btn-all btn-categoria">
@@ -128,7 +132,7 @@
     </section>
 
 
-    <aside class="product-detail inactive" >
+    <aside class="shoping-car-products inactive menu-despegable" >
         <div class="title-container">
             <img src="./icons/flechita.svg" alt="arrow">
             <p class="title">My order</p>
@@ -172,8 +176,30 @@
     </aside>
 
 
-    <!-- productos -->
+   <section class="product-detail-container menu-despegable inactive">
 
+
+       <div class="product-detail">
+           <div class="product-detail-close">
+               <img src="./icons/icon_close.png" alt="close">
+           </div>
+           <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940" alt="bike">
+           <div class="product-info">
+               <p>$35,00</p>
+               <p>Bike</p>
+               <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+               <button class="primary-button add-to-cart-button">
+                   <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                   Add to cart
+               </button>
+           </div>
+       </div>
+
+   </section>
+
+
+
+    <!-- productos -->
 
     <section class="main-products">
 
@@ -206,8 +232,11 @@
 
     </section>
 
+
+
 </main>
 
 <script src="./js/index.js"></script>
 </body>
+
 </html>

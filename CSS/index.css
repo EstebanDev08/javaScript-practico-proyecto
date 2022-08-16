@@ -2,7 +2,10 @@
     display: none;
 }
 
+main{
 
+    position: relative;
+}
 
 .flex-row{
     display: flex;
@@ -15,7 +18,7 @@ nav{
     border-bottom: 1px solid var(--very-light-pink);
     height: 64px;
     width: 100%;
-
+    z-index: 2;
 }
 
 nav .icon-menu{
@@ -163,7 +166,7 @@ nav .icon-menu{
 
 .menu-mobile{
     position: absolute;
-    top: 64px;
+
     width: 280px;
     padding-top: 24px;
 
@@ -216,7 +219,7 @@ nav .icon-menu{
 /* mi orden menu despegable */
 
 
-.product-detail {
+.shoping-car-products {
     width: 360px;
 
     box-sizing: border-box;
@@ -280,7 +283,7 @@ nav .icon-menu{
     grid-template-columns: auto 1fr;
     gap: 16px;
     align-items: center;
-    background-color: var(--text-input-field);
+
     border-radius: 8px;
     padding: 0 48px;
     margin-top: 12px;
@@ -298,7 +301,7 @@ nav .icon-menu{
     font-weight: bold;
 }
 
-.primary-button {
+.my-order-content .primary-button {
     background-color: var(--hostpital-green);
     border-radius: 8px;
     border: none;
@@ -310,6 +313,8 @@ nav .icon-menu{
     height: 50px;
 
     margin: 24px auto;
+
+
 }
 .primary-button:active{
     background-color: #98d9a1;
@@ -324,7 +329,7 @@ nav .icon-menu{
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 24px;
     place-content: center;
-    margin-top: 24px;
+    padding-top: 24px;
 }
 
 .card-product{
@@ -346,7 +351,7 @@ nav .icon-menu{
     object-fit: cover;
 }
 
-.product-info{
+.product-info--card-product{
     display: flex;
     justify-content: space-between;
     align-items:center ;
@@ -354,7 +359,7 @@ nav .icon-menu{
     height: 50px;
 }
 
-.product-info figure {
+.product-info--card-product figure {
     margin: 0;
     height: 100%;
 
@@ -362,17 +367,17 @@ nav .icon-menu{
 }
 
 
-.product-info figure img{
+.product-info--card-product figure img{
     width: 100%;
     height: 100%;
 
 
 }
-.product-info div p{
+.product-info--card-product div p{
     margin: 0;
 }
 
-.product-info div p:nth-child(1){
+.product-info--card-product div p:nth-child(1){
     font-size: var(--md);
     font-weight: bold;
 
@@ -380,7 +385,7 @@ nav .icon-menu{
 
 }
 
-.product-info div p:nth-child(2){
+.product-info--card-product div p:nth-child(2){
     font-size: var(--sm);
     margin-bottom: 0;
     margin-top: 0;
@@ -390,13 +395,104 @@ nav .icon-menu{
 
 
 
+/*  detalles de producto seleccionado */
+.product-detail-container{
+    width: 384px;
+
+    position: fixed;
+    right: calc(50% - 192px);
+    top: calc(50% - 330px);
+    padding: 12px;
+    background-color: var(--white);
+
+    border: 1px solid var(--vety-light-gray);
+}
 
 
+.product-detail-close {
+    background: var(--white);
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 2;
+    padding: 12px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-detail-close img {
+    width: 12px;
+    height: 12px;
+}
 
 
+.product-detail-close:hover {
+    cursor: pointer;
+}
+.product-detail > img:nth-child(2) {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+}
+.product-info {
+    margin: 24px 24px 0 24px;
+}
+.product-info p:nth-child(1) {
+    font-weight: bold;
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.product-info p:nth-child(2) {
+    color: var(--very-light-pink);
+    font-size: var(--md);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+.product-info p:nth-child(3) {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+    margin-top: 0;
+    margin-bottom: 36px;
+}
+.product-info .primary-button {
+    background-color: var(--hostpital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+    height: 50px;
+}
+.add-to-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+
+.dark-screen {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.menu-despegable{
+    z-index: 2;
+}
 @media (max-width: 640px) {
-    .product-detail {
+
+    .shoping-car-products {
         width: 100%;
     }
 
@@ -416,6 +512,12 @@ nav .icon-menu{
         width: 160px;
     }
 
+
+    .product-detail-container{
+        width: 100%;
+        right: 0;
+
+    }
 
 }
 
