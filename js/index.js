@@ -165,9 +165,6 @@ btn_categoria.forEach(function (btn){
 
         mostrar_productos(list_productos, categoria);
 
-
-
-
         menu_mobile.classList.add('inactive');
 
 
@@ -303,6 +300,7 @@ function abrir_cargar_product_detail(){
     });
 
 }
+
 
 
 
