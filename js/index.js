@@ -55,94 +55,41 @@ icon_menu.addEventListener('click', function (){
 /*  lista de productos */
 let list_productos = [];
 
-list_productos.push({
-    nombre: 'labial',
-    precio: 50,
-    image:'./products_img/product1.jpg',
-    categoria: 'electronics'
-});
+//api
+const API_URL = 'https://api.escuelajs.co/api/v1/products?offset=0&limit=200';
 
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product1.jpg',
-    categoria: 'furnitures'
-});
+//funcion asincrona api request
+async function obtener_productos(){
 
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product1.jpg',
-    categoria: 'toys'
-});
+    const response = await fetch(API_URL);
+    return await response.json();
+}
 
-list_productos.push({
-    nombre: 'labial',
-    precio: 50,
-    image:'./products_img/product2.jpg',
-    categoria: 'electronics'
-});
+//funcion uqe guarda los productos en una lista
+const  save_productos = async (url)=>{
 
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product1.jpg',
-    categoria: 'furnitures'
-});
+    try {
+        const products = await fetch(url);
 
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product1.jpg',
-    categoria: 'toys'
-});
-list_productos.push({
-    nombre: 'labial',
-    precio: 50,
-    image:'./products_img/product1.jpg',
-    categoria: 'electronics'
-});
-
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product1.jpg',
-    categoria: 'furnitures'
-});
-
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product1.jpg',
-    categoria: 'toys'
-});
-list_productos.push({
-    nombre: 'labial',
-    precio: 50,
-    image:'./products_img/product1.jpg',
-    categoria: 'electronics'
-});
-
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product1.jpg',
-    categoria: 'furnitures'
-});
-
-list_productos.push({
-    nombre: 'labial',
-    precio: 10,
-    image:'./products_img/product2.jpg',
-    categoria: 'toys'
-});
+        list_productos = await products.json();
 
 
-/* llamamos funcion para que muestre los productos de todas las categorias*/
-mostrar_productos(list_productos, 'all');
 
-// abrir producto detail al hacer click en el producto
-let list_productos_container = document.querySelectorAll('.card-product');
+    }catch (error) {
+        console.log(error);
+    }
+
+}
+ save_productos(API_URL).then(function (){
+
+     mostrar_productos(list_productos );
+
+     abrir_cargar_product_detail(list_productos);
+ });
+
+
+
+
 
 
 /*  mostrar productos por categorias  */
@@ -159,16 +106,17 @@ btn_categoria.forEach(function (btn){
     btn.addEventListener('click', function (){
 
 
-        let categoria = btn.querySelector('a').innerText.toLowerCase();
+        let categoria = btn.querySelector('a').innerText;
 
-        console.log(categoria);
 
-        mostrar_productos(list_productos, categoria);
+
+        mostrar_productos(list_productos, categoria );
 
         menu_mobile.classList.add('inactive');
 
 
-        abrir_cargar_product_detail()
+
+        abrir_cargar_product_detail();
 
 
     });
@@ -240,9 +188,6 @@ document.addEventListener('click', function (e){
 
 const product_detail = document.querySelector('.product-detail-container');
 
-abrir_cargar_product_detail();
-
-
 
 
 
@@ -250,32 +195,41 @@ abrir_cargar_product_detail();
 
 
 //funcion para que en cada categoria se cargue el foreach con los productos nuevos y se pueda abrir el menu de detalles
-function abrir_cargar_product_detail(){
+function abrir_cargar_product_detail(lista){
 
 
     // abrir producto detail al hacer click en el producto
-    list_productos_container = document.querySelectorAll('.card-product');
+    let list_productos_container = document.querySelectorAll('.card-product');
+
 
     list_productos_container.forEach(function (producto){
 
-        producto.addEventListener('click', function (){
+        producto.addEventListener('click', function (e){
 
+            const btn_add_cart = producto.querySelector('.product-info--card-product figure img');
 
-            list_productos_container = document.querySelectorAll('.card-product');
+            if (e.target !== btn_add_cart){
 
-
-
-            cerrar_abrir_menus(product_detail);
-
-            console.log(producto);
+                cerrar_abrir_menus(product_detail);
+            }
 
 
 
-            const img_producto = producto.querySelector('img').getAttribute('src');
-            const precio_producto = producto.querySelector('.product-info--card-product p').innerText;
-            const nombre_producto = producto.querySelector('.product-info--card-product p:nth-child(2)').innerText;
+        //abrimos menu al dar clic en producto
 
 
+            //obtenemos el index del producto seleccionado
+            const id = producto.querySelector('.product-info--card-product').id -1;
+
+
+            //cargamos los destalles del prodycto seleccionado
+            const img_producto = lista[id].images[0];
+            const precio_producto = lista[id].price;
+            const nombre_producto = lista[id].title;
+            const description_producto = lista[id].description;
+
+
+            //cargamos los detalles del producto en el detalle
             document.querySelector('.product-detail-container').innerHTML = `
 
                <div class="product-detail">
@@ -284,18 +238,48 @@ function abrir_cargar_product_detail(){
                    </div>
                    <img src="${img_producto}" alt="${nombre_producto}">
                    <div class="product-info">
-                       <p>${precio_producto}</p>
+                       <p>$${precio_producto}</p>
                        <p>${nombre_producto}</p>
-                       <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+                       <p>${description_producto}</p>
                        <button class="primary-button add-to-cart-button">
                            <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
                            Add to cart
                        </button>
                    </div>
                </div>
-        `;
+            `;
+
+
+            let total = 0;
+            if (e.target === btn_add_cart || e.target.classList.contains('add-to-cart-button')){
+                console.log('agregar al carrito');
+                const shopping_cart_container = document.querySelector('.container-orders');
+                let html_product_Car = `
+                
+                 <div class="shopping-cart hover">
+                    <figure>
+                        <img src="${img_producto}" alt="${nombre_producto}">
+                    </figure>
+                    <p>${nombre_producto}</p>
+                    <p id="precio_producto">$${precio_producto}</p>
+                    <img src="./icons/icon_close.png" alt="close">
+                </div>
+                
+                
+                `;
+
+                shopping_cart_container.innerHTML += html_product_Car;
+
+
+
+            }
+
 
         });
+
+
+
+
 
     });
 
@@ -344,55 +328,72 @@ function mostrar_productos(productos, categoria){
 
     let Html_container_products = '';
 
-    for (producto of productos){
 
-        if (categoria === 'all' || producto.categoria === null){
+    categoria = categoria || 'All';
 
+    for (producto of productos) {
 
+        if (categoria === 'All' ) {
             Html_container_products += `
-
-            <div class="card-product">
-                <img src="${producto.image}" alt="${producto.nombre}">
-                            
-                <div class="product-info--card-product">
-                
-                    <div>
-                    
-                        <p>$${producto.precio}</p>
-                        <p>${producto.nombre}</p>
-                        
-                    </div>
+            
+                <div class="card-product" >
+    
+    
+                    <img src="${producto.images[0]}" alt="${producto.description}">
+    
+                    <div class="product-info--card-product" id="${producto.id}">
+    
+                        <div>
+    
+                            <p>$${producto.price}</p>
+                            <p>${producto.title}</p>
+    
+                        </div>
+    
                         <figure>
-                            <img src="icons/bt_add_to_cart.svg" alt="">
+                            <img class="add-to-cart-button" src="icons/bt_add_to_cart.svg" alt="">
                         </figure>
                     </div>
-            </div>
-        `;
-        }else if (producto.categoria === categoria){
-
+                </div>
+                
+            
+            `;
+        }else if (producto.category.name === categoria) {
 
             Html_container_products += `
-
-            <div class="card-product">
-                <img src="${producto.image}" alt="${producto.nombre}">
-                            
-                <div class="product-info--card-product">
-                
-                    <div>
-                    
-                        <p>$${producto.precio}</p>
-                        <p>${producto.nombre}</p>
-                        
-                    </div>
+            
+                <div class="card-product" >
+    
+    
+                    <img src="${producto.images[0]}" alt="${producto.description}">
+    
+                    <div class="product-info--card-product" id="${producto.id}">
+    
+                        <div>
+    
+                            <p>$${producto.price}</p>
+                            <p>${producto.title}</p>
+    
+                        </div>
+    
                         <figure>
-                            <img src="icons/bt_add_to_cart.svg" alt="">
+                            <img class="add-to-cart-button" src="icons/bt_add_to_cart.svg" alt="">
                         </figure>
                     </div>
-            </div>
-        `;
+                </div>
+                
+            
+            `;
+
+            
         }
-
     }
+    document.querySelector('.container-products').innerHTML = Html_container_products;
 
-      document.querySelector('.container-products').innerHTML = Html_container_products;
+
+
 }
+
+
+
+
